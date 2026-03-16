@@ -1,0 +1,1 @@
+Cette PR n'a pas corrigé le badge Emoticons correctement. Le badge doit être VERT comme sur la page hub. Je ferme cette PR et j'en crée une nouvelle.

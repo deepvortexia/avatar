@@ -1,0 +1,106 @@
+# Deep Vortex AI Image Generator
+
+> Turn text into stunning, high-resolution AI images in seconds — powered by Imagen AI.
+
+## URL
+
+https://images.deepvortexai.art
+
+## About
+
+The Deep Vortex AI Image Generator transforms your text prompts into beautiful, high-resolution images using state-of-the-art Imagen AI technology. Whether you need a photorealistic product shot, a stylized illustration, an abstract digital artwork, or a social media graphic, this tool delivers quality results instantly — no design skills required.
+
+Choose from multiple aspect ratios to match your target platform, download your images immediately, and save your favorites to revisit or build upon later. The tool also provides style suggestions and idea prompts to help you get started even if you are unsure what to generate. With a shared credit system across the Deep Vortex AI ecosystem, every image you generate costs just one credit from your unified wallet.
+
+New accounts receive 2 free credits — enough to start generating right away without any payment.
+
+## Features
+
+- Text-to-image generation powered by Imagen AI
+- Multiple aspect ratios: 1:1 (square), 16:9 (landscape), 9:16 (portrait), 4:3, and 3:4
+- High-resolution image output suitable for print and digital use
+- Instant one-click download of generated images
+- Favorites gallery to save and revisit your best generations
+- Style suggestions to guide your creative direction
+- Idea prompts to inspire when you are unsure where to start
+- Fast generation times — results typically delivered in seconds
+- Mobile-friendly interface for generating on any device
+- Shared credit wallet integrated with all Deep Vortex AI tools
+
+## Use Cases
+
+- Creating social media content for Instagram, TikTok, YouTube, Facebook, and X
+- Generating blog post header images and editorial illustrations
+- Producing concept art and mood boards for creative projects
+- Designing marketing visuals, ad creatives, and promotional graphics
+- Rapid prototyping of product imagery and packaging concepts
+- Creating personalized digital artwork and wallpapers
+- Generating reference images for artists, writers, and game designers
+- Producing thumbnails for YouTube videos and podcast covers
+- Building visual assets for websites, landing pages, and presentations
+- Exploring creative ideas quickly without hiring a designer
+
+## Target Audience
+
+- Digital artists seeking fast AI-assisted image creation
+- Social media managers producing high volumes of visual content
+- Content creators who need custom images for every post or video
+- Marketers running campaigns that require diverse visual assets
+- Bloggers and writers who need header images and illustrations
+- Small business owners creating their own marketing materials
+- Educators building visual learning materials
+- Game designers generating reference and concept art
+- Developers integrating AI image generation into creative workflows
+
+## Pricing
+
+All credits are shared across every Deep Vortex AI tool. New accounts receive 2 free credits on sign-up — no payment required.
+
+- Starter: 10 credits — $4.99
+- Basic: 30 credits — $9.99
+- Popular: 75 credits — $19.99
+- Pro: 200 credits — $49.99
+- Ultimate: 500 credits — $99.99
+
+Credits do not expire. Use them on any tool in the Deep Vortex AI ecosystem at any time.
+
+## FAQ
+
+Q: What AI model powers the image generator?
+A: The Deep Vortex AI Image Generator is powered by Imagen AI, a leading text-to-image model known for producing high-quality, detailed, and photorealistic results across a wide range of styles and subjects.
+
+Q: What aspect ratios are supported?
+A: The tool supports five aspect ratios: 1:1 (square, ideal for Instagram and profile images), 16:9 (widescreen landscape, ideal for YouTube thumbnails and desktop wallpapers), 9:16 (vertical portrait, ideal for TikTok, Instagram Stories, and Reels), 4:3 (standard landscape), and 3:4 (standard portrait).
+
+Q: How many credits does one image generation cost?
+A: Each image generation costs 1 credit. Credits are drawn from your shared Deep Vortex AI wallet, which works across all tools in the ecosystem.
+
+Q: Can I download the images I generate?
+A: Yes. Every generated image can be downloaded instantly with a single click. Images are delivered in high resolution and are yours to use for personal or commercial projects.
+
+Q: Is there a way to save images I like without downloading them immediately?
+A: Yes. The favorites gallery lets you save any generated image to your account. You can access your saved favorites at any time from the tool interface.
+
+Q: Do I need any design skills to use the image generator?
+A: No design skills are required. Simply type a description of what you want to create and the AI does the rest. The tool also provides style suggestions and idea prompts to help you craft effective prompts if you are new to AI image generation.
+
+Q: Can I use the generated images commercially?
+A: Yes. Images generated with Deep Vortex AI tools are yours to use for both personal and commercial projects. Review the full terms of service at deepvortexai.art for complete licensing details.
+
+## All Deep Vortex AI Tools
+
+- Deep Vortex AI Hub: https://deepvortexai.art
+- AI Image Generator: https://images.deepvortexai.art
+- AI Emoticon Generator: https://emoticons.deepvortexai.art
+- AI Background Remover: https://bgremover.deepvortexai.art
+- AI Image Upscaler: https://upscaler.deepvortexai.art
+- AI 3D Model Generator: https://3d.deepvortexai.art
+- AI Voice Generator: https://voice.deepvortexai.art
+- AI Image to Video: https://video.deepvortexai.art
+
+## Contact
+
+- Email: admin@deepvortexai.xyz
+- TikTok: https://www.tiktok.com/@deepvortexai
+- X (Twitter): https://x.com/deepvortexart
+- Quora: https://deepvortexai.quora.com/

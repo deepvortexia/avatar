@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Primary Gold Colors (exact from Deep Vortex emoticon-generator) */
+  --gold-primary: #D4AF37;
+  --gold-light: #E8C87C;
+  --gold-dark: #B8860B;
+  --gold-accent: #FFD700; /* Bright gold for hub-style accents */
+  
+  /* Dark Theme Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #0f0f0f;
+  --bg-card: rgba(26, 26, 26, 0.7);
+
+  /* Gold Glows & Effects */
+  --glow-gold: rgba(212, 175, 55, 0.3);
+  --glow-gold-strong: rgba(212, 175, 55, 0.6);
+  
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+
+  /* System Colors */
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+
+  /* Borders */
+  --border-color: rgba(212, 175, 55, 0.2);
+  --border-hover: rgba(212, 175, 55, 0.5);
+
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  background-image: radial-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main App Container */
+.app {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background with Gold Glow */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: gradientPulse 8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+@keyframes gradientPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Floating Particles with Gold */
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: #D4AF37;
+  border-radius: 50%;
+  animation: particleRise 8s infinite ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes particleRise {
+  0% { bottom: -10px; opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.2; }
+  100% { bottom: 100vh; opacity: 0; }
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Prompt Section - Wider for better UX */
+.prompt-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.prompt-input,
+.prompt-textarea {
+  width: 100%;
+  min-width: 100%;
+  padding: 16px 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.8);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.prompt-input:focus,
+.prompt-textarea:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.prompt-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Make prompt section responsive */
+@media (max-width: 768px) {
+  .prompt-section {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  input, textarea, select {
+    font-size: 16px; /* Prevent iOS auto-zoom on focus */
+  }
+
+  .prompt-input,
+  .prompt-textarea {
+    font-size: 16px;
+  }
+
+  button {
+    min-height: 44px;
+  }
+}
+
+/* Optimized animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .particle {
+    display: none;
+  }
+  
+  .app::before {
+    animation: none;
+  }
+}
