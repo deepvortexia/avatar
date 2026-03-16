@@ -16,36 +16,7 @@ export default function ImageDisplay({ imageUrl, isLoading, error, onRegenerate,
   const [isFavorited, setIsFavorited] = useState(false);
   const { session } = useAuth();
 
-  const downloadImage = async () => {
-    if (!imageUrl) return;
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    try {
-      const response = await fetch(imageUrl);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const blob = await response.blob();
-      if (isMobile) {
-        const filename = `ai-image-${Date.now()}.jpg`;
-        const file = new File([blob], filename, { type: blob.type });
-        if (navigator.canShare?.({ files: [file] })) {
-          await navigator.share({ files: [file] });
-          return;
-        }
-        window.open(imageUrl, '_blank');
-        return;
-      }
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `ai-image-${Date.now()}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error('Download error:', err);
-      alert('Failed to download image. Please try right-clicking and "Save Image As..."');
-    }
-  };
+  const downloadImage=async()=>{if(!imageUrl)return;try{const r=await fetch(imageUrl);const b=await r.blob();const f=new File([b],`deepvortex-${Date.now()}.jpg`,{type:'image/jpeg'});if(navigator.canShare?.({files:[f]})){await navigator.share({files:[f]});return;}const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=`deepvortex-${Date.now()}.jpg`;a.click();URL.revokeObjectURL(u);}catch{window.open(imageUrl,'_blank');}}
 
   const handleAddToFavorites = async () => {
     if (!imageUrl) {
