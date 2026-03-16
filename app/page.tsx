@@ -230,6 +230,7 @@ function HomeContent(){
         </div>
       </footer>
       <Notification show={!!toast} onClose={()=>setToast(null)} title={toast?.title} message={toast?.message} type={toast?.type}/>
+      <a href="https://deepvortexai.art/game" target="_blank" rel="noopener noreferrer" className="play-earn-fab">⚡ Play &amp; Earn</a>
     </div>
   );
 }
