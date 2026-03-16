@@ -58,14 +58,18 @@ function HomeContent(){
     if(file.size>10*1024*1024){
       setToast({title:'File Too Large',message:'Image must be under 10MB.',type:'error'});return;
     }
-    setImageMime(file.type);
-    const reader=new FileReader();
-    reader.onload=(e)=>{
-      const dataUrl=e.target?.result as string;
+    setImageMime('image/jpeg');
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      canvas.getContext('2d')!.drawImage(img, 0, 0);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
       setImagePreview(dataUrl);
       setImageBase64(dataUrl.split(',')[1]);
     };
-    reader.readAsDataURL(file);
+    img.src = URL.createObjectURL(file);
   };
 
   const handleFileChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
