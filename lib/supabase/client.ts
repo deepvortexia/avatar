@@ -88,6 +88,7 @@ export function createClient() {
             // Clear it and return undefined so Supabase starts a clean session.
             try {
               JSON.parse(value)
+              console.log('cookie get called for:', name, 'returning:', value?.substring(0, 20))
               return value
             } catch {
               console.warn('[auth] Corrupted/base64 session found — clearing storage to prevent crash loop')
@@ -108,7 +109,9 @@ export function createClient() {
           if (value) return value
           return getChunkedCookie(name)
         }
-        return getChunkedCookie(name)
+        const result = getChunkedCookie(name)
+        console.log('cookie get called for:', name, 'returning:', result?.substring(0, 20))
+        return result
       },
 
       set(name: string, value: string, options?: { maxAge?: number }) {
