@@ -15,7 +15,6 @@ export default function AuthCallback() {
       }
 
       const url = new URL(window.location.href)
-      const code = url.searchParams.get('code')
       const errorParam = url.searchParams.get('error')
       const errorDescription = url.searchParams.get('error_description')
 
@@ -24,38 +23,8 @@ export default function AuthCallback() {
         return
       }
 
-      // PKCE flow: exchange authorization code for session
-      if (code) {
-        const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
-
-        if (exchangeError) {
-          // If code verifier was lost, check if detectSessionInUrl already handled it
-          if (exchangeError.message.includes('code verifier')) {
-            const { data: sessionData } = await supabase.auth.getSession()
-            if (sessionData?.session) {
-              window.location.replace('/')
-              return
-            }
-            setError('Session expired. Please try signing in again.')
-            return
-          }
-          setError(exchangeError.message)
-          return
-        }
-
-        window.location.replace('/')
-        return
-      }
-
-      // Implicit flow fallback: check hash for access_token (magic link)
-      const hash = window.location.hash
-      if (hash && hash.includes('access_token')) {
-        await supabase.auth.getSession()
-        window.location.replace('/')
-        return
-      }
-
-      // Fallback: check if session already exists
+      // Implicit flow: Supabase delivers #access_token in the hash.
+      // getSession() + detectSessionInUrl handles it automatically.
       const { data: sessionData } = await supabase.auth.getSession()
       if (sessionData?.session) {
         window.location.replace('/')

@@ -77,6 +77,7 @@ export function createClient() {
   }
 
   clientInstance = createBrowserClient(url, key, {
+    auth: { flowType: 'implicit' },
     cookies: {
       get(name: string) {
         // Map Supabase's default cookie name to our shared key
