@@ -247,21 +247,32 @@ function HomeContent(){
         </div>
 
         {isGenerating&&(
-          <div style={{marginTop:'1.5rem',padding:'1.25rem',background:'rgba(26,26,26,0.8)',borderRadius:'14px',border:'1px solid rgba(212,175,55,0.2)'}}>
-            <div style={{display:'flex',flexDirection:'column',gap:'0.5rem',marginBottom:'1rem'}}>
-              {([{stage:1,label:'Uploading image...'},{stage:2,label:'AI is animating your image...'},{stage:3,label:'Finalizing video...'}] as const).map(({stage,label})=>(
-                <div key={stage} style={{display:'flex',alignItems:'center',gap:'0.6rem'}}>
-                  <div style={{width:'10px',height:'10px',borderRadius:'50%',flexShrink:0,background:loadingStage>stage?'#D4AF37':loadingStage===stage?'#FFD700':'rgba(255,255,255,0.15)',boxShadow:loadingStage===stage?'0 0 8px rgba(255,215,0,0.8)':'none',transition:'all 0.3s ease'}}/>
-                  <span style={{fontSize:'0.85rem',color:loadingStage>stage?'#D4AF37':loadingStage===stage?'#fff':'rgba(255,255,255,0.3)',fontWeight:loadingStage===stage?600:400,transition:'all 0.3s ease'}}>{label}</span>
-                </div>
-              ))}
+          <div className="loading-section">
+            <div className="progress-stages">
+              <div className={`progress-stage${loadingStage===1?' stage-active':loadingStage>1?' stage-done':''}`}>
+                <div className="stage-dot"/>
+                <span>Uploading image...</span>
+              </div>
+              <div className={`progress-stage${loadingStage===2?' stage-active':loadingStage>2?' stage-done':''}`}>
+                <div className="stage-dot"/>
+                <span>AI is animating your image...</span>
+              </div>
+              <div className={`progress-stage${loadingStage===3?' stage-active':''}`}>
+                <div className="stage-dot"/>
+                <span>Finalizing video...</span>
+              </div>
             </div>
-            <div style={{position:'relative',height:'6px',background:'rgba(255,255,255,0.08)',borderRadius:'3px',marginBottom:'0.6rem',overflow:'hidden'}}>
-              <div style={{height:'100%',borderRadius:'3px',background:'linear-gradient(90deg,#B8960C,#D4AF37,#E8C87C)',width:`${loadingProgress}%`,transition:'width 0.2s ease',boxShadow:'0 0 8px rgba(212,175,55,0.5)'}}/>
+            <div className="progress-bar-wrapper">
+              <div className="progress-bar-track">
+                <div className="progress-bar-fill" style={{width:`${loadingProgress}%`}}/>
+              </div>
+              {loadingProgress>0&&(
+                <div className="progress-bar-tip" style={{left:`${loadingProgress}%`}}/>
+              )}
             </div>
-            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-              <span style={{color:'#D4AF37',fontSize:'0.85rem',fontWeight:700}}>{Math.round(loadingProgress)}%</span>
-              <span style={{color:'rgba(255,255,255,0.35)',fontSize:'0.8rem'}}>{elapsedSeconds}s...</span>
+            <div className="progress-footer">
+              <span className="progress-percent">{Math.round(loadingProgress)}%</span>
+              <span className="progress-elapsed">{elapsedSeconds}s...</span>
             </div>
           </div>
         )}
