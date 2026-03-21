@@ -131,7 +131,7 @@ export default function Header({ buyPack, onBuyPackHandled }: HeaderProps) {
       <header className="hub-header" role="banner">
         {/* Back to Hub Link — hidden when embedded in hub iframe */}
         {!isEmbedded && (
-          <Link href="https://deepvortexai.art" className="back-to-hub-link">
+          <Link href="https://deepvortexai.com" className="back-to-hub-link">
             ← Back to Hub
           </Link>
         )}

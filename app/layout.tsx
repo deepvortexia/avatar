@@ -13,18 +13,18 @@ export const metadata: Metadata = {
   verification: {
     google: "76BAsq1e-Ol7tA8HmVLi9LgMDXpjyBIQvdAx6bZXF7Q",
   },
-  metadataBase: new URL("https://avatar.deepvortexai.art"),
+  metadataBase: new URL("https://avatar.deepvortexai.com"),
   alternates: {
-    canonical: "https://avatar.deepvortexai.art",
+    canonical: "https://avatar.deepvortexai.com",
   },
   openGraph: {
     type: "website",
-    url: "https://avatar.deepvortexai.art",
+    url: "https://avatar.deepvortexai.com",
     title: "AI Avatar Generator - Deep Vortex AI",
     description: "Transform any photo into stunning AI avatars. Cartoon Pixar, Cyberpunk, Anime, Dark Fantasy and more.",
     siteName: "Deep Vortex AI",
     locale: "en_US",
-    images: [{ url: "https://avatar.deepvortexai.art/deepgoldremoveetiny.png", width: 512, height: 512, alt: "Deep Vortex AI Avatar Generator" }],
+    images: [{ url: "https://avatar.deepvortexai.com/deepgoldremoveetiny.png", width: 512, height: 512, alt: "Deep Vortex AI Avatar Generator" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     creator: "@deepvortexart",
     title: "AI Avatar Generator - Deep Vortex AI",
     description: "Transform any photo into stunning AI avatars. Cartoon, Cyberpunk, Anime, and more.",
-    images: ["https://avatar.deepvortexai.art/deepgoldremoveetiny.png"],
+    images: ["https://avatar.deepvortexai.com/deepgoldremoveetiny.png"],
   },
   icons: {
     icon: [
-      { url: "https://avatar.deepvortexai.art/favicon.ico?v=4", sizes: "any" },
-      { url: "https://avatar.deepvortexai.art/favicon.svg?v=4", type: "image/svg+xml" },
+      { url: "https://avatar.deepvortexai.com/favicon.ico?v=4", sizes: "any" },
+      { url: "https://avatar.deepvortexai.com/favicon.svg?v=4", type: "image/svg+xml" },
     ],
-    apple: "https://avatar.deepvortexai.art/apple-touch-icon.png?v=4",
+    apple: "https://avatar.deepvortexai.com/apple-touch-icon.png?v=4",
   },
   other: {
     "theme-color": "#D4AF37",
@@ -58,9 +58,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="https://avatar.deepvortexai.art/favicon.ico?v=4" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="https://avatar.deepvortexai.art/favicon.svg?v=4" />
-        <link rel="apple-touch-icon" href="https://avatar.deepvortexai.art/apple-touch-icon.png?v=4" />
+        <link rel="icon" href="https://avatar.deepvortexai.com/favicon.ico?v=4" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="https://avatar.deepvortexai.com/favicon.svg?v=4" />
+        <link rel="apple-touch-icon" href="https://avatar.deepvortexai.com/apple-touch-icon.png?v=4" />
         <link rel="llms" href="/llms.txt" type="text/plain" />
         <meta name="revisit-after" content="3 days" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,7 +75,7 @@ export default function RootLayout({
               "@type": "WebApplication",
               "name": "Deep Vortex AI Avatar Generator",
               "description": "Transform any photo into stunning AI avatars with professional quality.",
-              "url": "https://avatar.deepvortexai.art",
+              "url": "https://avatar.deepvortexai.com",
               "applicationCategory": "DesignApplication",
               "operatingSystem": "All",
               "offers": {

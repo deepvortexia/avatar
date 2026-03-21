@@ -83,7 +83,7 @@ export async function middleware(request: NextRequest) {
         cookiesToSet.forEach(({ name, value, options }) => {
           const cookieOptions = {
             ...options,
-            domain: '.deepvortexai.art',
+            domain: '.deepvortexai.com',
             path: '/',
             sameSite: 'lax' as const,
             secure: true,
