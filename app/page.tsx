@@ -249,7 +249,7 @@ function HomeContent(){
         {isGenerating&&(
           <div style={{marginTop:'1.5rem',padding:'1.25rem',background:'rgba(26,26,26,0.8)',borderRadius:'14px',border:'1px solid rgba(212,175,55,0.2)'}}>
             <div style={{display:'flex',flexDirection:'column',gap:'0.5rem',marginBottom:'1rem'}}>
-              {([{stage:1,label:'Preparing image...'},{stage:2,label:'AI is generating your avatar...'},{stage:3,label:'Finalizing...'}] as const).map(({stage,label})=>(
+              {([{stage:1,label:'Uploading image...'},{stage:2,label:'AI is animating your image...'},{stage:3,label:'Finalizing video...'}] as const).map(({stage,label})=>(
                 <div key={stage} style={{display:'flex',alignItems:'center',gap:'0.6rem'}}>
                   <div style={{width:'10px',height:'10px',borderRadius:'50%',flexShrink:0,background:loadingStage>stage?'#D4AF37':loadingStage===stage?'#FFD700':'rgba(255,255,255,0.15)',boxShadow:loadingStage===stage?'0 0 8px rgba(255,215,0,0.8)':'none',transition:'all 0.3s ease'}}/>
                   <span style={{fontSize:'0.85rem',color:loadingStage>stage?'#D4AF37':loadingStage===stage?'#fff':'rgba(255,255,255,0.3)',fontWeight:loadingStage===stage?600:400,transition:'all 0.3s ease'}}>{label}</span>
