@@ -46,7 +46,7 @@ npm install
 3. Create a `.env.local` file:
 ```env
 REPLICATE_API_TOKEN=your_replicate_api_token_here
-NEXT_PUBLIC_HUB_URL=https://deepvortexai.art
+NEXT_PUBLIC_HUB_URL=https://deepvortexai.com
 ```
 
 4. Run the development server:
@@ -82,7 +82,7 @@ npm run dev
   - 🎁 icon shows remaining free generations
   - 💰 gold icon shows credit balance for logged users
 - **After free generations**: Prompted to sign in for unlimited access
-- **Sign In button**: Redirects to `https://deepvortexai.art/login`
+- **Sign In button**: Redirects to `https://deepvortexai.com/login`
 
 ## API
 
@@ -111,4 +111,4 @@ MIT
 
 ## Credits
 
-Built with ❤️ by [Deep Vortex AI](https://deepvortexai.art)
+Built with ❤️ by [Deep Vortex AI](https://deepvortexai.com)

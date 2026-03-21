@@ -88,7 +88,7 @@ export default function RootLayout({
               "creator": {
                 "@type": "Organization",
                 "name": "Deep Vortex AI",
-                "url": "https://deepvortexai.art",
+                "url": "https://deepvortexai.com",
                 "sameAs": [
                   "https://www.tiktok.com/@deepvortexai",
                   "https://x.com/deepvortexart",

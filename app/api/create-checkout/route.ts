@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
               return NextResponse.json({ error: 'You must be logged in to purchase credits.' }, { status: 401 });
       }
 
-      const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://images.deepvortexai.art';
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://images.deepvortexai.com';
 
       const session = await stripe.checkout.sessions.create({
               payment_method_types: ['card'],
