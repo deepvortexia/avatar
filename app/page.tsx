@@ -33,6 +33,11 @@ function HomeContent(){
   const[toast,setToast]=useState<{title:string;message:string;type:'success'|'error'|'warning'}|null>(null);
   const[buyPack,setBuyPack]=useState<string|null>(null);
   const[isDragging,setIsDragging]=useState(false);
+  const[loadingStage,setLoadingStage]=useState<0|1|2|3>(0);
+  const[loadingProgress,setLoadingProgress]=useState(0);
+  const[elapsedSeconds,setElapsedSeconds]=useState(0);
+  const progressIntervalRef=useRef<ReturnType<typeof setInterval>|null>(null);
+  const elapsedIntervalRef=useRef<ReturnType<typeof setInterval>|null>(null);
 
   const refreshWithRetry=useCallback(async()=>{
     await refreshProfile();
@@ -82,23 +87,45 @@ function HomeContent(){
 
   const handleGenerate=async()=>{
     if(!imageBase64){setToast({title:'No Photo',message:'Please upload a photo first.',type:'warning'});return;}
+
+    const clearIntervals=()=>{
+      if(progressIntervalRef.current){clearInterval(progressIntervalRef.current);progressIntervalRef.current=null;}
+      if(elapsedIntervalRef.current){clearInterval(elapsedIntervalRef.current);elapsedIntervalRef.current=null;}
+    };
+
     setIsGenerating(true);setError(null);setToast(null);setImageUrl(null);
+    setLoadingStage(1);setLoadingProgress(0);setElapsedSeconds(0);
+    elapsedIntervalRef.current=setInterval(()=>setElapsedSeconds(s=>s+1),1000);
+
     try{
+      // Stage 1: Preparing image (0 → 10%)
+      setLoadingProgress(5);
       const{data:{session:s}}=await supabase.auth.getSession();
-      if(!s?.access_token){setError('Please sign in.');setIsGenerating(false);return;}
+      if(!s?.access_token){clearIntervals();setError('Please sign in.');setIsGenerating(false);setLoadingStage(0);setLoadingProgress(0);return;}
+      setLoadingProgress(10);
+
+      // Stage 2: AI generating avatar (10 → 85%, asymptotic drift)
+      setLoadingStage(2);
+      progressIntervalRef.current=setInterval(()=>{
+        setLoadingProgress(prev=>{const gap=85-prev;return gap<0.05?prev:prev+gap*0.003;});
+      },100);
+
       const controller=new AbortController();
       const timeout=setTimeout(()=>controller.abort(),90000);
       let res:Response;
       try{
         res=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+s.access_token},body:JSON.stringify({imageBase64,mimeType:imageMime,style:selectedStyle,prompt:userPrompt}),signal:controller.signal});
       }catch(fetchErr:any){
-        clearTimeout(timeout);
+        clearTimeout(timeout);clearIntervals();
         if(fetchErr.name==='AbortError'){setToast({title:'Request Timed Out',message:'The generation took too long. Please try again. No credits were deducted.',type:'warning'});}
         else{setToast({title:'Network Error',message:'Could not connect to the server. Please check your connection.',type:'error'});}
         return;
       }
       clearTimeout(timeout);
+      if(progressIntervalRef.current){clearInterval(progressIntervalRef.current);progressIntervalRef.current=null;}
+
       if(!res.ok){
+        clearIntervals();
         const data=await res.json().catch(()=>({}));
         switch(res.status){
           case 401:setToast({title:'Session Expired',message:'Please refresh and sign in again.',type:'error'});break;
@@ -108,13 +135,21 @@ function HomeContent(){
         }
         return;
       }
+
+      // Stage 3: Finalizing (85 → 100%)
+      setLoadingStage(3);setLoadingProgress(85);
+      await new Promise<void>(resolve=>{
+        let p=85;
+        const finalize=setInterval(()=>{p+=3;setLoadingProgress(Math.min(p,100));if(p>=100){clearInterval(finalize);resolve();}},40);
+      });
+
       const data=await res.json();
       setImageUrl(data.imageUrl);
       await refreshProfile();
       if(window.parent!==window){window.parent.postMessage({type:'deepvortex-credits-updated'},'https://deepvortexai.com');}
     }catch(err:unknown){
       setToast({title:'Generation Failed',message:(err instanceof Error?err.message:'An unexpected error occurred')+'. No credits were deducted.',type:'error'});
-    }finally{setIsGenerating(false);}
+    }finally{clearIntervals();setIsGenerating(false);setLoadingStage(0);setLoadingProgress(0);}
   };
 
   const uploadZoneBorder=isDragging?'#FFD700':imagePreview?'rgba(212,175,55,0.6)':'rgba(212,175,55,0.3)';
@@ -210,6 +245,26 @@ function HomeContent(){
             {isGenerating?'⚡ Generating Avatar...':'✨ Generate Avatar'}
           </button>
         </div>
+
+        {isGenerating&&(
+          <div style={{marginTop:'1.5rem',padding:'1.25rem',background:'rgba(26,26,26,0.8)',borderRadius:'14px',border:'1px solid rgba(212,175,55,0.2)'}}>
+            <div style={{display:'flex',flexDirection:'column',gap:'0.5rem',marginBottom:'1rem'}}>
+              {([{stage:1,label:'Preparing image...'},{stage:2,label:'AI is generating your avatar...'},{stage:3,label:'Finalizing...'}] as const).map(({stage,label})=>(
+                <div key={stage} style={{display:'flex',alignItems:'center',gap:'0.6rem'}}>
+                  <div style={{width:'10px',height:'10px',borderRadius:'50%',flexShrink:0,background:loadingStage>stage?'#D4AF37':loadingStage===stage?'#FFD700':'rgba(255,255,255,0.15)',boxShadow:loadingStage===stage?'0 0 8px rgba(255,215,0,0.8)':'none',transition:'all 0.3s ease'}}/>
+                  <span style={{fontSize:'0.85rem',color:loadingStage>stage?'#D4AF37':loadingStage===stage?'#fff':'rgba(255,255,255,0.3)',fontWeight:loadingStage===stage?600:400,transition:'all 0.3s ease'}}>{label}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{position:'relative',height:'6px',background:'rgba(255,255,255,0.08)',borderRadius:'3px',marginBottom:'0.6rem',overflow:'hidden'}}>
+              <div style={{height:'100%',borderRadius:'3px',background:'linear-gradient(90deg,#B8960C,#D4AF37,#E8C87C)',width:`${loadingProgress}%`,transition:'width 0.2s ease',boxShadow:'0 0 8px rgba(212,175,55,0.5)'}}/>
+            </div>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+              <span style={{color:'#D4AF37',fontSize:'0.85rem',fontWeight:700}}>{Math.round(loadingProgress)}%</span>
+              <span style={{color:'rgba(255,255,255,0.35)',fontSize:'0.8rem'}}>{elapsedSeconds}s...</span>
+            </div>
+          </div>
+        )}
 
         <ImageDisplay imageUrl={imageUrl} isLoading={isGenerating} error={error} prompt={selectedStyle+' avatar'} onRegenerate={handleGenerate}/>
         <EcosystemCards/>
