@@ -77,6 +77,7 @@ export default function RootLayout({
               "name": "Deep Vortex AI Avatar Generator",
               "description": "Transform any photo into stunning AI avatars with professional quality.",
               "url": "https://avatar.deepvortexai.com",
+              "image": "https://avatar.deepvortexai.com/deepgoldremoveetiny.png",
               "applicationCategory": "DesignApplication",
               "operatingSystem": "All",
               "offers": {
