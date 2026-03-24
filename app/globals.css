@@ -73,7 +73,7 @@ body {
 /* Main App Container */
 .app {
   min-height: 100vh;
-  background: var(--bg-primary);
+  background: #0a0a0a;
   position: relative;
   overflow-x: hidden;
 }
