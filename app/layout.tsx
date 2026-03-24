@@ -94,7 +94,6 @@ export default function RootLayout({
                 "sameAs": [
                   "https://www.tiktok.com/@deepvortexai",
                   "https://x.com/deepvortexart",
-                  "https://deepvortexai.quora.com/"
                 ]
               },
               "featureList": [
