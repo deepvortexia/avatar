@@ -2,6 +2,7 @@
 import './EcosystemCards.css'
 
 const tools = [
+  { name: 'Image Editor', icon: '✏️', desc: 'Edit any image with AI',       href: 'https://image-editor.deepvortexai.com', isCurrent: false },
   { name: 'Emoticons',    icon: '😃', desc: 'Custom emoji creation',        href: 'https://emoticons.deepvortexai.com', isCurrent: false },
   { name: 'Image Gen',    icon: '🎨', desc: 'AI artwork',                   href: 'https://images.deepvortexai.com',    isCurrent: false },
   { name: 'Logo Gen',     icon: '🛡️', desc: 'AI logo creation',             href: 'https://logo.deepvortexai.com',      isCurrent: false },
