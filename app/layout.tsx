@@ -8,9 +8,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AI Avatar Generator - Deep Vortex AI | Transform Your Photo into Any Style",
-  description: "Transform any photo into stunning AI avatars. Cartoon Pixar, Cyberpunk, Anime, Dark Fantasy and more. Powered by Flux Kontext Pro. Part of the Deep Vortex AI creative ecosystem.",
-  keywords: "AI avatar generator, photo to avatar, AI portrait, cartoon avatar, cyberpunk portrait, anime avatar, Deep Vortex AI, flux kontext, AI tools, portrait generator",
+  title: "AI Avatar Generator Free — Transform Photo to Any Style | Deep Vortex AI",
+  description: "Transform any photo into stunning AI avatars — Cartoon, Pixar, Cyberpunk, Anime, Dark Fantasy and more. Free online tool, no signup required. Part of Deep Vortex AI.",
+  keywords: "AI avatar generator free online, photo to avatar AI free, cartoon avatar maker no signup, AI portrait generator free, cyberpunk avatar creator, anime avatar generator free, Deep Vortex AI avatar, transform photo to avatar free",
   authors: [{ name: "Deep Vortex AI" }],
   creator: "Deep Vortex AI",
   publisher: "Deep Vortex AI",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://avatar.deepvortexai.com",
-    title: "AI Avatar Generator - Deep Vortex AI",
-    description: "Transform any photo into stunning AI avatars. Cartoon Pixar, Cyberpunk, Anime, Dark Fantasy and more.",
+    title: "AI Avatar Generator Free — Transform Photo to Any Style | Deep Vortex AI",
+    description: "Transform any photo into stunning AI avatars — Cartoon, Pixar, Cyberpunk, Anime, Dark Fantasy and more. Free online tool, no signup required. Part of Deep Vortex AI.",
     siteName: "Deep Vortex AI",
     locale: "en_US",
     images: [{ url: "https://avatar.deepvortexai.com/deepgoldremoveetiny.png", width: 512, height: 512, alt: "Deep Vortex AI Avatar Generator" }],
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@deepvortexart",
     creator: "@deepvortexart",
-    title: "AI Avatar Generator - Deep Vortex AI",
-    description: "Transform any photo into stunning AI avatars. Cartoon, Cyberpunk, Anime, and more.",
+    title: "AI Avatar Generator Free — Transform Photo to Any Style | Deep Vortex AI",
+    description: "Transform any photo into stunning AI avatars — Cartoon, Pixar, Cyberpunk, Anime, Dark Fantasy and more. Free online tool, no signup required. Part of Deep Vortex AI.",
     images: ["https://avatar.deepvortexai.com/deepgoldremoveetiny.png"],
   },
   icons: {
