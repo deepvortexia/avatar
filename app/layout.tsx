@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: "Transform any photo into stunning AI avatars — Cartoon, Pixar, Cyberpunk, Anime, Dark Fantasy and more. Free online tool, no signup required. Part of Deep Vortex AI.",
     siteName: "Deep Vortex AI",
     locale: "en_US",
-    images: [{ url: "https://avatar.deepvortexai.com/deepgoldremoveetiny.png", width: 512, height: 512, alt: "Deep Vortex AI Avatar Generator" }],
+    images: [{ url: "/og-image.webp", width: 512, height: 512, alt: "Deep Vortex AI Avatar Generator" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     creator: "@deepvortexart",
     title: "AI Avatar Generator Free — Transform Photo to Any Style | Deep Vortex AI",
     description: "Transform any photo into stunning AI avatars — Cartoon, Pixar, Cyberpunk, Anime, Dark Fantasy and more. Free online tool, no signup required. Part of Deep Vortex AI.",
-    images: ["https://avatar.deepvortexai.com/deepgoldremoveetiny.png"],
+    images: ["/og-image.webp"],
   },
   icons: {
     icon: [
@@ -82,7 +82,7 @@ export default function RootLayout({
               "name": "Deep Vortex AI Avatar Generator",
               "description": "Transform any photo into stunning AI avatars with professional quality.",
               "url": "https://avatar.deepvortexai.com",
-              "image": "https://avatar.deepvortexai.com/deepgoldremoveetiny.png",
+              "image": "/og-image.webp",
               "applicationCategory": "DesignApplication",
               "operatingSystem": "All",
               "offers": {
